@@ -120,18 +120,118 @@
             F(x, y) = e^{3x}\ln(1+y^{2}) - \sqrt[2]{x^{2}+1} + f'(y)
         \end{equation}
 
+        \begin{flushleft}
+            Now, we solve for $f(y)$:
+        \end{flushleft}
+        \begin{align*}
+            &\frac{\partial{F}}{\partial{y}} 
+            = \frac{\partial{}}{\partial{y}}\left( e^{3x}\ln(1+y^{2}) - \sqrt[2]{x^{2}+1} + f'(y) \right) \\
+            &= \frac{2ye^{3x}}{1+y^{2}} + f'(y) \\
+        \end{align*}
+        \begin{flushleft}
+            Therefore, $f'(y)$ equals:
+        \end{flushleft}
+        \begin{align*}
+            &\frac{2ye^{3x}}{1+y^{2}} + f'(y) = \left( -2\sin(y)\cos(y) + \frac{2ye^{3x}}{1+y^{2}}\right) \\
+            &f'(y) = -2\sin(y)\cos(y) \\
+        \end{align*}
+        \begin{flushleft}
+            We integrate $f'(y)$:
+        \end{flushleft}
+        \begin{align*}
+            &\int f'(y)dy = \int -2\sin(y)\cos(y)dy \\
+            &= -\int \sin(2y)dy \\
+            &= \frac{\cos(2y)}{2} \\ 
+        \end{align*}
+        \begin{flushleft}
+            Therefore, $f(y)$ equals:
+        \end{flushleft}
+        \begin{align*}
+            &f(y) = \frac{\cos(2y)}{2} \\
+        \end{align*}
+        \begin{flushleft}
+            Finally, $F(x, y)$ equals:
+        \end{flushleft}
+        \begin{align*}
+            &F(x, y) = e^{3x}\ln(1+y^{2}) - \sqrt[2]{x^{2}+1} + \frac{\cos(2y)}{2} = C_1 \\
+        \end{align*}
     \end{singlespace}
 
     % Second problem:
     \newpage
-    \begin{flushleft}
-        Find the general solution to
-    \end{flushleft}
-
-    \begin{center}
-        \begin{equation}
-            \left( y-x \right)dx - \left( y +x \right)dy = 0
-        \end{equation}
-    \end{center}
+    \begin{singlespace}
+        \begin{flushleft}
+            Find the general solution to
+        \end{flushleft}
+        \begin{center}
+            \begin{equation}
+                \left( y-x \right)dx - \left( y +x \right)dy = 0
+            \end{equation}
+        \end{center}
+        \begin{flushleft}
+            Solution to homogeneous equation:
+        \end{flushleft}
+        \begin{align*}
+            &\left( y +x \right)dy = \left( y-x \right)dx  \\
+            &\frac{dy}{dx} = \frac{y-x}{y+x}
+        \end{align*}
+        \begin{flushleft}
+            Setting up the equation in the form $u=\frac{y}{x}$:
+        \end{flushleft}
+        \begin{align*}
+            &\frac{dy}{dx} = \frac{y-x}{y+x} * \frac{\frac{1}{x}}{\frac{1}{x}} \\
+            &= \frac{\frac{y}{x}-1}{\frac{y}{x}+1} \\
+            &= \frac{u-1}{u+1} \\
+        \end{align*}
+        \begin{flushleft}
+            Therefore, $g(u)=\frac{u-1}{u+1}$ and now we set up $g(u)-u$:
+        \end{flushleft}
+        \begin{align*}
+            &g(u)-u = \frac{u-1}{u+1} - u \\
+            &= \frac{u-1}{u+1} - u\frac{u-1}{u+1} \\
+            &= \frac{u-1}{u+1} - \frac{u^{2}-u}{u+1} \\
+            &= \frac{u-1-u^{2}+u}{u+1} \\
+            &= \frac{-u^{2}-1}{u+1} \\
+        \end{align*}
+        \begin{flushleft}
+            Now, we set up $g(u)-u=x\frac{du}{dx}$ and integrate $\frac{dx}{x}=\frac{du}{g(u)-u}$:
+        \end{flushleft}
+        \begin{align*}
+            &\frac{dx}{x} = \frac{du}{g(u)-u} \\
+            &\int \frac{dx}{x} = \int \frac{du}{g(u)-u} \\
+            &\ln(x) = \int \frac{du}{g(u)-u} \\
+            &\ln(x) = \int \frac{du}{\frac{-u^{2}-1}{u+1}} \\
+            &\ln(x) = \int -\frac{u+1}{u^{2}+1}du \\
+            &\ln(x) = -\int \left( \frac{u}{u^{2}+1}+\frac{1}{u^{2}+1}\right)du
+        \end{align*}
+        \begin{flushleft}
+            Now, we solve the integral $\int \frac{u}{u^{2}+1}du$:\\
+        \end{flushleft}
+        \begin{align*}
+            &\int \frac{u}{u^{2}-1}du = \int \frac{u}{u^{2}+1}du \\
+        \end{align*}
+        \begin{center}
+            We substitute $t=u^{2}+1$ and $dt=2udu$:
+        \end{center}
+        \begin{align*}
+            & \int \frac{u}{u^{2}+1}du = \int \frac{u}{t}\frac{dt}{2u} \\
+            &= \frac{1}{2}\int \frac{dt}{t} \\
+            &= \frac{1}{2}\ln(t) \\
+            &= \frac{1}{2}\ln(u^{2}+1) \\
+        \end{align*}
+        \begin{flushleft}
+            Now, we solve the integral $\int \frac{1}{u^{2}+1}du$:\\
+        \end{flushleft}
+        \begin{align*}
+            & \int \frac{1}{u^{2}+1}du=\arctan(u)
+        \end{align*}
+        \begin{flushleft}
+            Therefore:
+        \end{flushleft}
+        \begin{align*}
+            &\ln|x| = -\left(\frac{1}{2}\ln|u^{2}+1| + \arctan(u)\right) \\
+            &\ln|x| = -\frac{1}{2}\ln|\frac{y^{2}}{x^{2}}+1|- \arctan\left(\frac{y}{x}\right) \\
+        \end{align*}
+    \end{singlespace}
 
 \end{document}
