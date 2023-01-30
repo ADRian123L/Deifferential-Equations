@@ -22,16 +22,14 @@
 \pagenumbering{arabic}
 \allowdisplaybreaks
 
-
 \begin{document}
     \maketitle
     
     % First problem
     \newpage
     \begin{flushleft}
-        Q.1 Solve the following differential equation:
+        \textbf{Q.1 Solve the following differential equation:}
     \end{flushleft}
-
     \begin{center}
         \begin{equation}
             \left( 3e^{3x}\ln{(1+y^{2})}-\frac{x}{\sqrt[2]{x^{2}+1}} \right)dx 
@@ -39,39 +37,30 @@
             \left(2\sin{(y)}cos{(y)}-2e^{3x}\frac{y}{1+y^{2}}\right)dy
         \end{equation}
     \end{center}
-
     \begin{flushleft}
         where $y(0)=0$
     \end{flushleft}
-
-% Solution
-    % Exactness Condition
     \begin{flushleft}
         Exactness Condition:
     \end{flushleft}
     \begin{equation}
         \frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}
     \end{equation}
-    
     \begin{equation}
         M = 3e^{3x}\ln{(1+y^{2})}-\frac{x}{\sqrt[2]{x^{2}+1}}
     \end{equation}
-
     \begin{equation}
         N = -2\sin{(y)}cos{(y)}+2e^{3x}\frac{y}{1+y^{2}}
     \end{equation}
-
     \begin{equation}
         \frac{\partial M}{\partial y} = \frac{6ye^{3x}}{1+y^{2}}
         \qquad
         \frac{\partial N}{\partial x} = \frac{6ye^{3x}}{1+y^{2}}
     \end{equation}
-    
     % Solving the differential equation
     \begin{flushleft}
         Therefore, the differential equation is exact.
     \end{flushleft}
-
     \begin{flushleft}
         Solution:
     \end{flushleft}
@@ -90,19 +79,15 @@
         \qquad
         \frac{\partial F}{\partial y} = N
     \end{equation} 
-
     \begin{equation}
             \int \frac{\partial F}{\partial x}dx 
             = 
             \int \left( 3e^{3x}\ln{(1+y^{2})}-\frac{x}{\sqrt[2]{x^{2}+1}} \right)dx
     \end{equation}
-
-    % Continuing the solution
     \newpage
     \begin{singlespace}
-        
-        \begin{align*} \label{eq:pareto mle2}
-            &= \int \left(3e^{3x}\ln(1+y^{2}\right)dx  - \int \left(\frac{x}{\sqrt[2]{x^{2}+1}}\right)dx \\
+        \begin{align*}
+            &= \int \left(3e^{3x}\ln(1+y^{2})\right)dx  - \int \left(\frac{x}{\sqrt[2]{x^{2}+1}}\right)dx \\
             &= e^{3x}\ln(1+y^{2}) - \int \left(\frac{x}{\sqrt[2]{x^{2}+1}}\right)dx \\
         \end{align*}
         $u=x^{2}+1$ so that $du=2xdx$ and $dx=\frac{du}{2x}$
@@ -117,7 +102,6 @@
         \begin{equation}
             F(x, y) = e^{3x}\ln(1+y^{2}) - \sqrt[2]{x^{2}+1} + f'(y)
         \end{equation}
-
         \begin{flushleft}
             Now, we solve for $f(y)$:
         \end{flushleft}
@@ -159,7 +143,7 @@
     \newpage
     \begin{singlespace}
         \begin{flushleft}
-            Q.2 Find the general solution to
+            \textbf{Q.2 Find the general solution to}
         \end{flushleft}
         \begin{center}
             \begin{equation}
@@ -231,5 +215,4 @@
             &\ln|x| = -\frac{1}{2}\ln|\frac{y^{2}}{x^{2}}+1|- \arctan\left(\frac{y}{x}\right) \\
         \end{align*}
     \end{singlespace}
-
 \end{document}
