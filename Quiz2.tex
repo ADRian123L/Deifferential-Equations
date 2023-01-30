@@ -1,0 +1,137 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage{fancyhdr}
+\usepackage{mathtools}
+\usepackage{setspace}
+
+\author{Adrian Lozada}
+\title{Quiz 2}
+\date{January 30, 2022}
+% Enumerate the pages in the document
+\pagenumbering{arabic}
+\allowdisplaybreaks
+
+
+\begin{document}
+    \maketitle
+    
+    % First problem
+    \newpage
+    \begin{flushleft}
+        Solve the following differential equation:
+    \end{flushleft}
+
+    \begin{center}
+        \begin{equation}
+            \left( 3e^{3x}\ln{(1+y^{2})}-\frac{x}{\sqrt[2]{x^{2}+1}} \right)dx 
+            =
+            \left(2\sin{(y)}cos{(y)}-2e^{3x}\frac{y}{1+y^{2}}\right)dy
+        \end{equation}
+    \end{center}
+
+    \begin{flushleft}
+        where $y(0)=0$
+    \end{flushleft}
+
+% Solution
+    % Exactness Condition
+    \begin{flushleft}
+        Exactness Condition:
+    \end{flushleft}
+    \begin{equation}
+        \frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}
+    \end{equation}
+    
+    \begin{equation}
+        M = 3e^{3x}\ln{(1+y^{2})}-\frac{x}{\sqrt[2]{x^{2}+1}}
+    \end{equation}
+
+    \begin{equation}
+        N = -2\sin{(y)}cos{(y)}+2e^{3x}\frac{y}{1+y^{2}}
+    \end{equation}
+
+    \begin{equation}
+        \frac{\partial M}{\partial y} = \frac{6ye^{3x}}{1+y^{2}}
+        \qquad
+        \frac{\partial N}{\partial x} = \frac{6ye^{3x}}{1+y^{2}}
+    \end{equation}
+    
+    % Solving the differential equation
+    \begin{flushleft}
+        Therefore, the differential equation is exact.
+    \end{flushleft}
+
+    \begin{flushleft}
+        Solution:
+    \end{flushleft}
+    
+    \begin{equation}
+        \left( 3e^{3x}\ln{(1+y^{2})}-\frac{x}{\sqrt[2]{x^{2}+1}} \right)dx 
+        -
+        \left(2\sin{(y)}cos{(y)}-2e^{3x}\frac{y}{1+y^{2}}\right)dy = 0
+    \end{equation}
+    \begin{equation}
+        \left( 3e^{3x}\ln{(1+y^{2})}-\frac{x}{\sqrt[2]{x^{2}+1}} \right)dx 
+        +
+        \left(-2\sin{(y)}cos{(y)}+2e^{3x}\frac{y}{1+y^{2}}\right)dy = 0
+    \end{equation}
+
+    \begin{equation}
+        \frac{\partial F}{\partial x} = M 
+        \qquad
+        \frac{\partial F}{\partial y} = N
+    \end{equation} 
+
+    \begin{equation}
+            \int \frac{\partial F}{\partial x}dx 
+            = 
+            \int \left( 3e^{3x}\ln{(1+y^{2})}-\frac{x}{\sqrt[2]{x^{2}+1}} \right)dx
+    \end{equation}
+
+    % Continuing the solution
+    \newpage
+    \begin{singlespace}
+        
+        \begin{align*} \label{eq:pareto mle2}
+            &= \int \left(3e^{3x}\ln(1+y^{2}\right)dx  - \int \left(\frac{x}{\sqrt[2]{x^{2}+1}}\right)dx \\
+            &= e^{3x}\ln(1+y^{2}) - \int \left(\frac{x}{\sqrt[2]{x^{2}+1}}\right)dx \\
+        \end{align*}
+        $u=x^{2}+1$ so that $du=2xdx$ and $dx=\frac{du}{2x}$
+        \begin{align*}
+            &= e^{3x}\ln(1+y^{2}) - \int \left(\frac{1}{2\sqrt[2]{u}}\right)du \\
+            &= e^{3x}\ln(1+y^{2}) - \sqrt[2]{u} + f'(y) \\
+            &= e^{3x}\ln(1+y^{2}) - \sqrt[2]{x^{2}+1} + f'(y) \\
+        \end{align*}
+        \begin{flushleft}
+            Hence, F equals:
+        \end{flushleft}
+        \begin{equation}
+            F(x, y) = e^{3x}\ln(1+y^{2}) - \sqrt[2]{x^{2}+1} + f'(y)
+        \end{equation}
+
+    \end{singlespace}
+
+    % Second problem:
+    \newpage
+    \begin{flushleft}
+        Find the general solution to
+    \end{flushleft}
+
+    \begin{center}
+        \begin{equation}
+            \left( y-x \right)dx - \left( y +x \right)dy = 0
+        \end{equation}
+    \end{center}
+
+\end{document}
