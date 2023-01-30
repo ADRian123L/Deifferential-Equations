@@ -101,21 +101,21 @@
         $u=x^{2}+1$ so that $du=2xdx$ and $dx=\frac{du}{2x}$
         \begin{align*}
             &= e^{3x}\ln(1+y^{2}) - \int \left(\frac{1}{2\sqrt[2]{u}}\right)du \\
-            &= e^{3x}\ln(1+y^{2}) - \sqrt[2]{u} + f'(y) \\
-            &= e^{3x}\ln(1+y^{2}) - \sqrt[2]{x^{2}+1} + f'(y) \\
+            &= e^{3x}\ln(1+y^{2}) - \sqrt[2]{u} + f(y) \\
+            &= e^{3x}\ln(1+y^{2}) - \sqrt[2]{x^{2}+1} + f(y) \\
         \end{align*}
         \begin{flushleft}
             Hence, F equals:
         \end{flushleft}
         \begin{equation}
-            F(x, y) = e^{3x}\ln(1+y^{2}) - \sqrt[2]{x^{2}+1} + f'(y)
+            F(x, y) = e^{3x}\ln(1+y^{2}) - \sqrt[2]{x^{2}+1} + f(y)
         \end{equation}
         \begin{flushleft}
             Now, we solve for $f(y)$:
         \end{flushleft}
         \begin{align*}
             &\frac{\partial{F}}{\partial{y}} 
-            = \frac{\partial{}}{\partial{y}}\left( e^{3x}\ln(1+y^{2}) - \sqrt[2]{x^{2}+1} + f'(y) \right) \\
+            = \frac{\partial{}}{\partial{y}}\left( e^{3x}\ln(1+y^{2}) - \sqrt[2]{x^{2}+1} + f(y) \right) \\
             &= \frac{2ye^{3x}}{1+y^{2}} + f'(y) \\
         \end{align*}
         \begin{flushleft}
