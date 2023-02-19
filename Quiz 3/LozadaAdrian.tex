@@ -1,0 +1,223 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{enumerate}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{enumerate}
+
+\author{Adrian Lozada, U71130053}
+\title{Quiz 3}
+\date{October 10, 2019}
+
+\begin{document}
+    \maketitle
+    \newpage
+    \section{Problem 1}
+    \begin{flushleft}
+        1. Find the general solution to the differential equation
+    \end{flushleft}
+    \begin{equation}
+        y'' + 6y' + 9y = x^{2} + \cos(x) - xe^{-3x}
+    \end{equation}
+        $Homogeneous$ $Equation:$
+    \begin{align*}
+        y'' + 6y' + 9y &= 0 \\
+    \end{align*}
+        $Characteristic$ $Equation:$
+    \begin{align*}
+        r^{2} + 6r + 9 &= 0 \\
+        (r + 3)(r + 3) &= 0 \\
+        r &= -3
+    \end{align*}
+        $Homogeneous$ $Solution:$
+    \begin{align*}
+        y_{h} &= \frac{(A + Bx)}{e^{3x}}\\
+    \end{align*}
+
+        $Particular$ $Solution$ $1:$
+    \begin{align*}
+        y'' + 6y' + 9y &= \cos{x} \\
+    \end{align*}
+        $$m = 0, \alpha = 0, k = 0, s = 0, \beta = 1, C = 1$$
+    \begin{align*}
+        y_{p1} = A\cos{x} + B\sin{x} \\
+    \end{align*}
+        Solving for the constants:
+    \begin{align*}
+        \begin{cases}
+            [9] \quad y_{p1} = A\cos{x} + B\sin{x} \\
+            [6] \quad y_{p1}' = -A\sin{x} + B\cos{x} \\
+            [1] \quad y_{p1}'' = -A\cos{x} - B\sin{x} \\
+        \end{cases}
+    \end{align*}
+
+    \begin{align*}
+        \cos{x}: \quad &9A + 6B - A = 1 \\
+        & 8A + 6B = 1\\
+        & A = \frac{1 - 6B}{8} \\
+        \sin{x}: \quad &9B -A6 - B = 0 \\
+        & 8B - 6A = 0 \\
+        & 8B - 6\left(\frac{1 - 6B}{8}\right) = 0 \\
+        & 100B = 6 \\
+        & B = \frac{6}{100} = \frac{3}{50}\\
+        & A = \frac{2}{25} \\
+    \end{align*}
+    \begin{align*}
+        y_{p1} = \frac{2}{25}\cos{x} + \frac{3}{50}\sin{x} \\
+    \end{align*}
+    $Particular$ $Solution$ $2:$
+    \begin{align*}
+        y'' + 6y' + 9y &= x^{2} \\
+    \end{align*}
+        $$m = 2, \alpha = 0, s = 0, C = 1$$
+    \begin{align*}
+        y_{p2} = Ax^{2} + Bx + C\\
+    \end{align*}
+
+        Solving for the constants:
+    \begin{align*}
+        \begin{cases}
+           [9] \quad y_{p2} = Ax^{2} + Bx + C \\
+            [6] \quad y_{p2}' = 2Ax + B \\
+            [1] \quad y_{p2}'' = 2A \\
+        \end{cases}
+    \end{align*}
+    \begin{align*}
+        x^{2}: \quad & 9A = 1 \\
+        & A = \frac{1}{9} \\
+        x: \quad & 9B + 12A = 0 \\
+        & 9B = -12A \\
+        & 9B = -\frac{12}{9} \\
+        & 9B = -\frac{4}{3} \\
+        & B = -\frac{4}{27} \\
+        1: \quad & 9C + 6B + 2A = 0 \\
+        & 9C + 6\left(-\frac{4}{27}\right) + 9\left(\frac{1}{9}\right) = 0 \\
+        & 9C - \frac{8}{9} + \frac{2}{9} = 0 \\
+        & 9C - \frac{8}{9} = -\frac{2}{9} \\
+        & 9C = \frac{6}{9} \\
+        & C = \frac{2}{27} \\
+    \end{align*}
+    \begin{align*}
+        y_{p2} = \frac{1}{9}x^{2} - \frac{4}{27}x + \frac{2}{27} \\
+    \end{align*}
+    $Particular$ $Solution$ $3:$
+    \begin{align*}
+        y'' + 6y' + 9y &= xe^{-3x} \\
+    \end{align*}
+        $$m = 0, \alpha = 0, k = 0, s = 0, \beta = 1, C = 1$$
+    \begin{align*}
+        y_{p3} = \frac{(Ax^{3} + Bx^{2})}{e^{3x}}\\
+    \end{align*}
+        Solving for the constants:
+    \begin{align*}
+        \begin{cases}
+            [9] \quad y_{p3} = \frac{(Ax^{3} + Bx^{2})}{e^{3x}} \\
+            [6] \quad y_{p3}' = \frac{(3Ax^{2} + 2Bx - 3Ax^3 -3Bx^{2})}{e^{3x}} \\
+            [1] \quad y_{p3}'' = \frac{(6Ax + 2B - 9Ax^{2} -6Bx -9Ax^{2} -6Bx + 9Ax^{3} + 9Bx^{2})}{e^{3x}} \\
+        \end{cases}
+    \end{align*}
+    \begin{align*}
+        &x^{3}: 9A -18A + 9A = 0\\
+        &x^{2}: 9B - 18B + 9B -9A + 18A - 9A = 0\\
+        &x: 12B + 6A - 12B = -1\\
+        &6A = -1\\
+        &A = -\frac{1}{6}\\
+        &B = 0 \\
+    \end{align*}
+    \begin{align*}
+        y_{p3} = \frac{(-\frac{1}{6})x^{3}}{e^{3x}}\\
+    \end{align*}
+    \begin{align*}
+        y = y_{h} + y_{p1} + y_{p2} + y_{p3} \\
+    \end{align*}
+
+
+    \newpage
+    \section{Problem 2}
+    \begin{flushleft}
+        2. Find the general solution to the differential equation
+    \end{flushleft}
+    \begin{equation}
+        y'' - 2y' + 5y = xe^{x} + xe^{x}\sin{(2x)}
+    \end{equation}
+    $Homogeneous$ $Equation:$
+    \begin{align*}
+        y'' - 2y' + 5y &= 0 \\
+    \end{align*}
+    \begin{align*}
+        &r = x^{2} - 2x + 5 \\
+        &r = \frac{2 \pm i4}{2} \\
+        &\alpha = 1, \beta = 2
+    \end{align*}
+        $Homogeneous$ $Solution:$
+    \begin{align*}
+        y_{h} &= e^{x}(A\cos{(2x)} + B\sin{(2x)}) 
+    \end{align*}    
+    $Particular$ $Solution$ $1:$
+    \begin{align*}
+        y'' - 2y' + 5y &= xe^{x}\\
+    \end{align*}
+        $$m = 1, \alpha = 1, s = 0, C = 1$$
+    \begin{align*}
+        y_{p1} &= (Ax + B)e^{x} \\
+    \end{align*}
+        Solving for the constants:
+    \begin{align*}
+        \begin{cases}
+            [5] \quad y_{p1} = (Ax + B)e^{x} \\
+            [-2] \quad y_{p1}' = (Ax + B + A)e^{x} \\
+            [1] \quad y_{p1}'' = (Ax + B + 2A)e^{x} \\
+        \end{cases}
+    \end{align*}
+    \begin{align*}
+        x: \quad & 5A -2A + A = 1 \\
+        & A = \frac{1}{4} \\
+        &B = 0
+    \end{align*}
+    \begin{align*}
+        y_{p1} = \frac{1}{4}xe^{x} \\
+    \end{align*}
+
+
+    $Particular$ $Solution$ $2:$
+    \begin{align*}
+        y'' - 2y' + 5y &= xe^{x}\sin{2x}\\
+    \end{align*}
+        $$m = 1, \alpha = 1, s = 0, C = 1, \beta = 2$$
+    \begin{align*}
+        y_{p1} &= xe^{x}((Ax + B)\cos{2x} + (Cx + D)\sin{(2x)}) \\
+    \end{align*}
+        Solving for the constants:
+    \begin{align*}
+        \begin{cases}
+            [5] \quad y_{p2} = xe^{x}((Ax + B)\cos{2x} + (Cx + D)\sin{(2x)}) \\
+            [-2] \quad y_{p2}' = e^{x}((C - 2A)x^2 + (D + 2C  -3B)x  + D)\sin{2x} + e^{x}((2C + A)x^2 + (2D + B + 2A)x + B)\cos{2x} \\
+            [1] \quad y_{p2}'' = ((-3C -4A)x^2 + (-3D + 4C - 4B -8A)x + 2D + 2C -4B)e^{x}\sin{2x} + \\ ((4C-3A)x^2 + (4D + 8C -3B  + 4A)x  + 4D + 2B + 2A)e^{x}\cos{2x} \\
+        \end{cases}
+    \end{align*}
+
+    \begin{align*}
+        x^2: & 5A + 5C - 2C +4A -4A -2C + -2A -3C -4A +4C -3A = 0 \\
+        x: & 5B + 5D + -2D -4C +6B -4D -2B -4A  -3D +4C -4B -8A +4D +8C -3B +4A= 1 \\
+        & A = -\frac{1}{8} \\
+        &B = 0 \\
+        &C = 0 \\
+        &D = \frac{1}{16} \\
+    \end{align*}
+    \begin{align*}
+        y_{p2} = xe^{x}\left( \frac{\sin{(2x)}}{16} - \frac{x\cos{(2x)}}{8}\right)\\
+    \end{align*}
+    \begin{align*}
+        y = y_{h} + y_{p1} + y_{p2} \\
+    \end{align*}
+
+
+
+
+
+\end{document}
