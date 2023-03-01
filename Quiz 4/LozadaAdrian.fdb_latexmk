@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1677637901 "/Users/adrianlozada/Desktop/USF/USF_4/Deifferential Equations/Quiz 4/LozadaAdrian.tex" "LozadaAdrian.pdf" "LozadaAdrian" 1677637902
-  "/Users/adrianlozada/Desktop/USF/USF_4/Deifferential Equations/Quiz 4/LozadaAdrian.tex" 1677637901 6349 951dff09fa73e8106a089c76e79ea7c8 ""
+["pdflatex"] 1677642267 "/Users/adrianlozada/Desktop/USF/USF_4/Deifferential Equations/Quiz 4/LozadaAdrian.tex" "LozadaAdrian.pdf" "LozadaAdrian" 1677642268
+  "/Users/adrianlozada/Desktop/USF/USF_4/Deifferential Equations/Quiz 4/LozadaAdrian.tex" 1677642267 6376 5a26b61ccec6ee610101cde841043f68 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -160,9 +160,9 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1674704598 2826445 17e6d19166ec93d1a7546f8ac3ac3cf7 ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "LozadaAdrian.aux" 1677637902 1004 24ec9fe3625f1e113bd9962b4f9eb2e4 "pdflatex"
-  "LozadaAdrian.out" 1677637902 273 6213a69c2a74ea306625d7fb89f4bd97 "pdflatex"
-  "LozadaAdrian.tex" 1677637901 6349 951dff09fa73e8106a089c76e79ea7c8 ""
+  "LozadaAdrian.aux" 1677642268 1004 24ec9fe3625f1e113bd9962b4f9eb2e4 "pdflatex"
+  "LozadaAdrian.out" 1677642268 273 6213a69c2a74ea306625d7fb89f4bd97 "pdflatex"
+  "LozadaAdrian.tex" 1677642267 6376 5a26b61ccec6ee610101cde841043f68 ""
   (generated)
   "LozadaAdrian.aux"
   "LozadaAdrian.log"
