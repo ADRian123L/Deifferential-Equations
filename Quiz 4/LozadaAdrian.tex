@@ -1,0 +1,194 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{enumerate}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage{polynom}
+
+\author{Adrian Lozada, U71130053}
+\title{Quiz 4}
+
+\begin{document}
+    \maketitle
+    \newpage
+
+    \section{Problem 1}
+
+    \begin{flushleft}
+        Find the general solution to the differential equation. \\
+        $$y''(x) + y(x) = \sec^{3}(x)$$
+    \end{flushleft}
+    $Charasteristic\ Equation:$ \\
+    \begin{align*}
+        r^{2} + 1 &= 0 \\
+        r^{2} &= -1 \\
+        r &= \pm i
+    \end{align*}
+
+    $Homogenuous\ Solution:$ \\
+    \begin{align*}
+        y_h = c_{1}\cos(x) + c_{2}\sin(x)
+    \end{align*}
+
+    $Variation\ of\ Parameters:$ \\
+    \begin{align*}
+        y_p(x) &= \nu_1\cos(x) + \nu_2\sin(x) \\
+        \begin{cases}
+            -\nu_1'\sin(x) + \nu_2'\cos(x) = \sec^{3}(x) \\
+            \nu_1'\cos(x) + \nu_2'\sin(x) = 0
+        \end{cases}
+        \\
+    \end{align*}
+    $Solving\ for\ \nu_1:$ \\
+    \begin{align*}
+        &\nu_1'\sin(x) + \nu_1'\cos(x)  = -\sec^{3}(x)\sin(x) \\
+        &\nu_1' = -\sec^{3}(x)\sin(x) = -\frac{\sin(x)}{\cos^{3}(x)}\\
+        &\nu_1 = -\int \frac{\sin(x)}{\cos^{3}(x)} dx, \quad \text{u = cos(x), du = -sin(x)dx} \\
+        &\nu_1 = - \int \frac{1}{u^{3}}du = -\frac{1}{2u^{2}} \\
+        &\nu_1 = -\frac{1}{2}\sec^{2}(x) \\
+    \end{align*}
+
+    $Solving\ for\ \nu_2:$ \\   
+    \begin{align*}
+        &\nu_2'\cos^{2}(x) + \nu_2'\sin^{2}(x) = \sec^{3}(x)\cos(x) = \sec^{2}(x)\\
+        &\nu_2 = \int \sec^{2}(x)dx = \tan(x) \\
+    \end{align*}
+    $Generel\ Solution:$ \\
+    \begin{align*}
+        y = c_{1}\cos(x) + c_{2}\sin(x) - \frac{1}{2}\sec(x) + \frac{\sin^{2}(x)}{\cos(x)}
+    \end{align*}
+
+    \newpage
+    \section{Problem 2}
+
+    \begin{flushleft}
+        Solve the initial value problem. \\
+        $$x^{2}y''(x) + 7xy'(x) + 5y(x) = 0$$
+    \end{flushleft} 
+    \text{Initial\ Conditions:} \\
+    \begin{align*}
+        y(1) &= -1 \\
+        y'(1) &= 13
+    \end{align*}
+    $Cauchy-Euler\ Equation:$ \\
+    $$(ar^2) + (b - a)r + c = 0$$
+    \begin{align*}
+        r^{2} + (7 - 1)r + 5 = 0 \\
+        r^{2} + 6r + 5 = 0 \\
+        (r + 1)(r + 5) = 0 \\
+        r &= -1, -5
+    \end{align*}
+    $Homogenuous\ Solution:$ \\
+    \begin{align*}
+        y_h = c_{1}t^{-1} + c_{2}t^{-5}
+    \end{align*}
+    \text{Solving for the constants:} \\
+    \begin{align*}
+        &y(1) = -1 = c_{1} + c_{2} \\
+        &y'(1) = 13 = -c_{1} - 5c_{2} \\
+        &\begin{cases}
+            c_{1} - c_{2} = -1 \\
+            -c_{1} - 5c_{2} = 13
+        \end{cases} \\
+        &\begin{cases}
+            c_{1} = 2 \\
+            c_{2} = -3
+        \end{cases} \\
+    \end{align*}
+    \text{Solution:}
+    $$y = 2t^{-1} - 3t^{-5}$$
+
+    \newpage
+    \section{Problem 3}
+    \text{Find the general solution to the differential equation.} \\
+    $$y^{(6)}(x) -7y^{(5)}(x) + 48y^{(4)}(x) - 94y'''(x) + 157y''(x) + 777y' - 882y(x) = 0$$
+    \text{Hints:} \\
+    $$e^{2x}\cos(\sqrt{17}x)\ and\ xe^{2x}\sin{\sqrt{17}x}$$
+
+    \text{Hence:}
+    $2\pm i\sqrt{17}$
+    \text{is a root of the characteristic equation.} \\ \\
+    \text{Then:} \\
+    $$(r - (2 + i\sqrt{17}))(r - (2 - i\sqrt{17}))$$
+    \text{is a factor of the characteristic equation.} \\ \\ \\
+    \text{Solving for the other roots:} \\
+    \begin{align*}
+        &(r - (2 + i\sqrt{17}))(r - (2 - i\sqrt{17})) \\
+        &((r - 2) - i\sqrt{17})((r - 2)+ i\sqrt{17}) \\
+        &(r - 2)^{2} -i^{2}17\\
+        &r^{2} - 4r + 4 + 17\\
+        &r^{2} - 4r + 21\\
+    \end{align*}
+    \text{Long division:} \\
+    \begin{align*}
+        \begin{array}{r}
+            r^{4} -3r^{3} + 15r^{2} + 29r - 42\phantom{)ddcddddddddddd} \\
+            r^{2} - 4r + 21{\overline{\smash{\big)}\, r^{6}-7r^{5}+48r^{4}-94r^{3}+157r^{2}+777r-882}} \\
+            \underline{-~\phantom{(}(r^{6} -4r^{5}+21r^{4})\phantom{-bbbbbbbbbbbbbbbbbbbbbbbbbb)}} \\
+            -3r^{5} + 27r^{4} - 94r^{3} + 157r^{2} + 777r - 882 \phantom{}\\
+            \underline{-~\phantom{(}(-3r^{5} + 12r^{4} - 63r^{3})\phantom{-bbbbbbbbbbbbbbbbbbbb)}} \\
+            15r^{4} - 31r^{3} + 157r^{2} + 777r - 882 \phantom{}\\
+            \underline{-~\phantom{(}(15r^{4} - 60r^{3} + 315r^{2})\phantom{-bbbbbbbbbbb)}} \\
+            29r^{3} - 158r^{2} + 777r - 882 \phantom{}\\
+            \underline{-~\phantom{(}(29r^{3} - 116r^{2} + 609r)\phantom{-bdbb}} \\
+            -42r^{2} + 168r - 882 \phantom{}\\
+            \underline{-~\phantom{(}(-42r^{2} + 168r - 882)\phantom{}} \\
+            0 \phantom{}\\
+        \end{array}
+    \end{align*}
+
+    \newpage
+    \text{Hence:} \\
+    $$(r^{2} - 4 + 21)(r^{4} -3r^{3} + 15r^{2} + 29r - 42)$$
+    \text{are the factors of the differential equation.} \\ \\
+    \text{According to the root mean theorem, the possible roots are:} \\
+    $$\pm1,\pm2,\pm3,...$$
+    \text{1 is root thus:} 
+    $(r - 1)$ is a factor of the differential equation. \\ \\
+    \text{Hence, using the synthetic division:} \\
+    \begin{center}
+        \begin{tabular}{c|c|c|c|c|c|}
+              1 & 1 \quad -3 \quad 15 \quad 29 \quad -42 \\
+              \hline
+                &1 \quad 1 \quad -2 \quad 14 \quad 42 \\
+                \hline
+                &1 \quad -2 \quad 13 \quad 42 \quad 0\\
+        \end{tabular}
+    \end{center}
+
+    \text{Hence,} 
+    $r^{3} -2r^{2} + 13r + 42$
+    \text{is a factor of the differential equation.} \\ \\
+    \text{Another root is -2, thus:} \\
+    \begin{center}
+        \begin{tabular}{c|c|c|c|c|c|}
+              -2 & 1 \quad -2 \quad 13 \quad 42 \\
+              \hline
+                &1 \quad -2 \quad 8 \quad -42  \\
+                \hline
+                &1 \quad -4 \quad 21 \quad 0 \\
+        \end{tabular}
+    \end{center}
+    \text{Hence,} 
+    $r^{2} -4r + 21$
+    \text{is a factor of the differential equation.} \\ \\
+    \text{The factorized form of the differential equation is:} \\
+    $$(r+2)(r-1)(r^{2}-4r+21)^{2}$$
+    \text{Hence, the roots are:} \\
+    \begin{align*}
+        &r = -2 \\
+        &r = 1 \\
+        &r_{12} = 2 \pm i\sqrt{17} \\
+    \end{align*}
+
+    \text{The general solution is:} \\
+    $$y = C_1e^{-2x} + C_2e^{x} + e^{2x}\left((C_3x + C_4)\cos(\sqrt{17}x) + (C_5x + C_4)\sin(\sqrt{17}x)\right)$$
+
+\end{document}
