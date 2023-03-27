@@ -1,0 +1,31 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+
+\title{Quiz 5}
+\author{Adrian Lozada}
+\date{March 26, 2023}
+
+\begin{document}
+    \maketitle
+    \newpage
+    % Problem 1
+    \begin{align*}
+        f(t) &= 
+        \begin{cases}
+            t & \text{if } 0 < t < 1 \\
+            1 & \text{if } t > 1 \\
+        \end{cases}
+    \end{align*}
+    \begin{flushleft}
+        Solution: \\
+    \end{flushleft}
+    \begin{align*}
+        &= \int_0^1 te^{-st} \, dt + \int_1^t e^{-st} \, dt \\
+        \text{LHS integral:} \\
+        &= \int_0^1 te^{-st} \, dt = -\frac{te^{-st}}{s} + \int_{0}^{1} \frac{e^{-st}}{s} \, dt \\
+        &= \left( -\frac{t}{se^{st}} - \frac{1}{s^{2}e^{st}}\right)
+    \end{align*}
+\end{document}
