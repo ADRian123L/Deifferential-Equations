@@ -2,8 +2,6 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 
-
-
 \title{Quiz 5}
 \author{Adrian Lozada}
 \date{March 26, 2023}
@@ -19,25 +17,29 @@
             1 & \text{if } t > 1 \\
         \end{cases}
     \end{align*}
-    \begin{flushleft}
-        Solution: \\
-    \end{flushleft}
+    
+    \textbf{Solution:} \\
     \begin{align*}
-        &= \int_0^1 te^{-st} \, dt + \int_1^\infty e^{-st} \, dt \\
-        \text{LHS integral:} \\
-        &= \int_0^1 te^{-st} \, dt = -\frac{te^{-st}}{s} + \int_{0}^{1} \frac{e^{-st}}{s} \, dt \\
-        &= \left[\left( -\frac{t}{se^{st}} - \frac{1}{s^{2}e^{st}}\right)\right]_0^1 = \left[ -\frac{st - 1}{s^{2}e^{st}}\right]_0^1
-        &= \left( \left(-\frac{s - 1}{s^2e^{s}}\right) - \left(-\frac{1}{s^{2}}\right)\right) \\
-        &= -\frac{s-1}{s^{2}e^{s}} + \frac{1}{s^{2}} \\
+        \mathcal{L}\{f\} &= \int_0^1 te^{-st} \, dt + \int_1^\infty e^{-st} \, dt \\
+        \\ % Add some vertical space
+        \textbf{LHS integral:} \\
+        &= \int_0^1 te^{-st} \, dt = -\frac{te^{-st}}{s} - \frac{e^{-st}}{s^2} \Big|_0^1 \\
+        &= \left(-\frac{1}{s} - \frac{1}{s^2}\right)e^{-s} - \left(0 - \frac{1}{s^2}\right) \\
+        &= \frac{1}{s^2} - \frac{1}{s}e^{-s} - \frac{1}{s^2}e^{-s} \\
+        \\ % Add some vertical space
+        \textbf{RHS integral:} \\
+        &= \int_1^\infty e^{-st} \, dt = -\frac{e^{-st}}{s} \Big|_1^\infty \\
+        &= 0 - \left(-\frac{1}{s}e^{-s}\right) \\
+        &= \frac{1}{s}e^{-s}
     \end{align*}
-    \text{RHS integral:}
+    \\ % Add some vertical space
+    \textbf{Answer:}
     \begin{align*}
-        &= \int_1^\infty e^{-st} \, dt = \lim_{n \to \infty} \int_{1}^{n} e^{-st} \, dt \\
-        &= \lim_{n \to \infty} \left[ -\frac{1}{se^{st}}\right]_1^n = \lim_{n \to \infty}\left(-\frac{1}{se^{nt}} + \frac{1}{se^{s}}\right) \\
-        &= \frac{1}{se^{s}}
-    \end{align*}
-    \text{Answer:}
-    \begin{align*}
-       \mathcal{L}\{f\} = \frac{s - 1}{s^{2}e^{s}} + \frac{1}{s^{2}} - \frac{1}{se^{s}} \text{ for } s > 0\\
+       \mathcal{L}\{f\} &= \frac{1}{s^2} - \frac{1}{s}e^{-s} - \frac{1}{s^2}e^{-s} + \frac{1}{s}e^{-s} \\
+       &= \frac{1}{s^2} - \frac{1}{s^2}e^{-s} \text{ for } s > 0
     \end{align*}    
+
+    \newpage
+    % Problem 2
+    
 \end{document}
