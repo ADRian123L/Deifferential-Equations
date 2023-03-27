@@ -1,6 +1,13 @@
 \documentclass{article}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{theorem}
+
+% Problem statement formatting
+\theoremheaderfont{\normalfont\bfseries}
+\theorembodyfont{\normalfont}
+\newtheorem{problem}{Problem}
 
 \title{Quiz 5}
 \author{Adrian Lozada}
@@ -9,37 +16,118 @@
 \begin{document}
     \maketitle
     \newpage
+
     % Problem 1
-    \begin{align*}
-        f(t) &= 
+    \begin{problem}
+    Use the definition of the Laplace transform to find $F(s) = \mathcal{L}\{f(t)\}(s)$ if:
+    \[
+        f(t) = 
         \begin{cases}
             t & \text{if } 0 < t < 1 \\
             1 & \text{if } t > 1 \\
         \end{cases}
-    \end{align*}
+    \]
+    \end{problem}
     
     \textbf{Solution:} \\
     \begin{align*}
-        \mathcal{L}\{f\} &= \int_0^1 te^{-st} \, dt + \int_1^\infty e^{-st} \, dt \\
+        \mathcal{L}\{f\}(s) &= \int_0^1 te^{-st} \, dt + \int_1^\infty e^{-st} \, dt \\
         \\ % Add some vertical space
         \textbf{LHS integral:} \\
         &= \int_0^1 te^{-st} \, dt = -\frac{te^{-st}}{s} - \frac{e^{-st}}{s^2} \Big|_0^1 \\
         &= \left(-\frac{1}{s} - \frac{1}{s^2}\right)e^{-s} - \left(0 - \frac{1}{s^2}\right) \\
-        &= \frac{1}{s^2} - \frac{1}{s}e^{-s} - \frac{1}{s^2}e^{-s} \\
+        &= \frac{1}{s^2} - \frac{1}{s}e^{-s} - \frac{1}{s^2}e^{-s}, \text{ for } s > 0 \\
         \\ % Add some vertical space
         \textbf{RHS integral:} \\
         &= \int_1^\infty e^{-st} \, dt = -\frac{e^{-st}}{s} \Big|_1^\infty \\
         &= 0 - \left(-\frac{1}{s}e^{-s}\right) \\
-        &= \frac{1}{s}e^{-s}
+        &= \frac{1}{s}e^{-s}, \text{ for } s > 0
     \end{align*}
     \\ % Add some vertical space
     \textbf{Answer:}
     \begin{align*}
-       \mathcal{L}\{f\} &= \frac{1}{s^2} - \frac{1}{s}e^{-s} - \frac{1}{s^2}e^{-s} + \frac{1}{s}e^{-s} \\
+       \mathcal{L}\{f\}(s) &= \frac{1}{s^2} - \frac{1}{s}e^{-s} - \frac{1}{s^2}e^{-s} + \frac{1}{s}e^{-s} \\
        &= \frac{1}{s^2} - \frac{1}{s^2}e^{-s} \text{ for } s > 0
-    \end{align*}    
+    \end{align*} 
 
     \newpage
     % Problem 2
+    \begin{problem}
+        Use the definition of the Laplace transform to find $F(s) = \mathcal{L}\{f(t)\}(s)$ if:
+        \[
+            f(t) = 
+            \begin{cases}
+                \cos{6t} & \text{if } 0 < t < \frac{\pi}{2} \\
+                0 & \text{if } t > \frac{\pi}{2} \\
+            \end{cases}
+        \]
+    \end{problem}
     
+    \textbf{Solution:} \\
+    \begin{align*}
+        \mathcal{L}\{f\}(s) &= \int_{0}^{\frac{\pi}{2}} e^{-st}\cos{6t} \, dt + \int_{\frac{\pi}{2}}^{\infty} 0 \times e^{-st} \, dt \\
+    \end{align*}
+    The second integral is zero since it is a product of 0 and an exponential function. We only need to solve the first integral:
+    \begin{align*}
+        \mathcal{L}\{f\}(s) &= \int_{0}^{\frac{\pi}{2}} e^{-st}\cos{6t} \, dt \\
+    \end{align*}
+    Now, we integrate by parts again. Let $u = \cos{6t}$ and $dv = e^{-st}\, dt$. \\
+    Then, $du = -6\sin{6t}\, dt$ and $v = -\frac{1}{s}e^{-st}$.
+
+    \begin{align*}
+        \mathcal{L}\{f\}(s) &= \left[ -\frac{1}{s}e^{-st}\cos{6t}\right]_{0}^{\frac{\pi}{2}} - \frac{6}{s}\int_{0}^{\frac{\pi}{2}} \frac{1}{s}e^{-st}\sin{6t}\, dt \\   
+    \end{align*}
+    Now, we integrate by parts again. Let $u = \sin{6t}$ and $dv = e^{-st}\, dt$. \\
+    Then, $du = 6\cos{6t}\, dt$ and $v = -\frac{1}{s}e^{-st}$. \\
+    \begin{align*}
+        \mathcal{L}\{f\}(s) &= \left[ -\frac{1}{s}e^{-st}\cos{6t}\right]_{0}^{\frac{\pi}{2}} - \left[ -\frac{6}{s^{2}}e^{-st}\sin{6t}\right]_{0}^{\frac{\pi}{2}} - \frac{36}{s^{2}}\mathcal{L}\{f\}(s)
+    \end{align*}    
+    Now, we add $\frac{36}{s^{2}}\mathcal{L}\{f\}(s)$ to both sides of the equation. \\
+    Then we factor out $\mathcal{L}\{f\}(s)$. \\
+    \begin{align*}
+        \mathcal{L}\{f\}(s)\left(\frac{s^{2} + 36}{s^{2}}\right) &= \left[ -\frac{1}{s}e^{-st}\cos{6t}\right]_{0}^{\frac{\pi}{2}} - \left[ -\frac{6}{s^{2}}e^{-st}\sin{6t}\right]_{0}^{\frac{\pi}{2}} \\
+        &= \left( \left(-\frac{1}{s}e^{-s\frac{\pi}{2}} + \frac{1}{s}\right) + \left(0\right)\right) 
+    \end{align*}
+    Now, we multiply both sides by $\frac{s^{2}}{s^{2} + 36}$ and simplify. \\
+    \begin{align*}
+        \mathcal{L}\{f\}(s) &= \frac{s^{2}}{s^{2} + 36}\left(-\frac{1}{s}e^{-s\frac{\pi}{2}} + \frac{1}{s}\right) \\
+        &= \frac{s}{s^{2} + 36}(-e^{-s\frac{\pi}{2}} + 1) \\
+        &= \frac{s(1 - e^{-s\frac{\pi}{2}})}{s^{2} + 36}, \text{ for } s > 0 \\
+    \end{align*}
+
+    \newpage
+    % Problem 3
+    \begin{problem}
+        Use the Laplace Transform Table (LTT) to find F(s) = $\mathcal{L}\{f\}(s)$ if:
+        \[
+            f(t) = (\sin{t} + \cos{t})^{2}
+        \]
+    \end{problem}
+    \textbf{Solution:}
+    \begin{align*}
+        f(t) &= \sin^{2}{t} +2\sin{t}\cos{t} + \cos^{2}{t} \\
+        &= \frac{1}{2} - \frac{1}{2}\cos{2t} + \sin{2t} + \frac{1}{2} + \frac{1}{2}\cos{2t} \\
+        &= 1 + \sin{2t} 
+    \end{align*}
+    Now, we use the LTT to find the Laplace transform of $1 + \sin{2t}$. \\
+    \begin{align*}
+        \mathcal{L}\{f\}(s) &= \mathcal{L}\{1\} + \mathcal{L}\{\sin{2t}\} \\
+        &= \frac{1}{s} + \frac{1}{s^{2} + 4}, \text{ for } s > 0 
+    \end{align*}
+
+    \newpage
+    % Problem 4
+    \begin{problem}
+        Use the Laplace Transform Table (LTT) to find F(s) = $\mathcal{L}\{f\}(s)$ if:
+        \[
+            f(t) = t^{4} + t^{2}e^{-t} + \sin^{2}{t} - e^{3t}\sin{\sqrt{3}t}
+        \]
+    \end{problem}
+    \textbf{Solution:}
+    \begin{align*}
+        &= \mathcal{L}\{t^{4}\}  + \mathcal{L}\{t^{2}e^{-t}\} + \mathcal{L}\{\sin^{2}{t}\} + \mathcal{L}\{e^{3t}\sin{\sqrt{3}t}\} \\
+        &= \frac{4!}{s^{5}} + \frac{2!}{(s + 1)^{3}} + \frac{1}{2s} - \frac{1}{2}\frac{s}{s^{2} + 4} -\frac{3\sqrt{3}}{(s - 3)^{2} + 3} \\
+        &= \frac{24}{s^{5}} + \frac{2}{(s + 1)^{3}} + \frac{1}{2s} - \frac{1}{2}\frac{s}{s^{2} + 4} -\frac{3\sqrt{3}}{(s - 3)^{2} + 3} \\
+    \end{align*}
+
 \end{document}
