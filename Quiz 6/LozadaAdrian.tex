@@ -1,0 +1,109 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{theorem}
+\usepackage{enumitem}
+
+\title{Quiz 6}
+\author{Adrian Lozada}
+\date{April 2, 2023}
+\theoremheaderfont{\normalfont\bfseries}
+\theorembodyfont{\normalfont}
+\newtheorem{problem}{Problem}
+
+\begin{document}
+    \maketitle
+    \newpage
+
+    % Problem 1
+    \begin{problem}
+        Find the inverse Laplace transform of the given function.
+        \[
+            \frac{2s + 16}{s^{2} + 4s + 13}
+        \]
+    \end{problem}
+    \textbf{Solution:} \\ \\ 
+    \textit{We first simplify the given rational function.} \\
+     \begin{align*}
+        \frac{2s + 16}{s^{2} + 4s + 13} &= \frac{2(s + 8)}{(s + 2)^{2} + 9} \\
+        &= \frac{2(s + 2 + 6)}{(s + 2)^{2} + (3)^{2}} = \frac{2(s + 2)}{(s + 2)^{2} + (3)^{2}} + \frac{12}{(s + 2)^{2} + (3)^{2}} \\
+        &= 2\left( \frac{s + 2}{(s + 2)^{2} + (3)^{2}}\right) + 4\left( \frac{3}{(s + 2)^{2} + (3)^{2}}\right)
+     \end{align*}
+    \textit{Now we find the inverse Laplace transform.} \\
+    \begin{align*}
+       &= 2\mathcal{L}^{-1} \left\{ \frac{s + 2}{(s + 2)^{2} + (3)^{2}}\right\} + 4\mathcal{L}^{-1} \left\{ \frac{3}{(s + 2)^{2} + (3)^{2}}\right\} \\ \\
+       &= 2(e^{-2t}\cos{3t}) + 4(e^{-2t}\sin{3t}) \\ \\
+       &= 2e^{-2t}\cos{3t} + 4e^{-2t}\sin{3t}
+    \end{align*}
+    \newpage
+
+    % Problem 2
+    \begin{problem}
+        Determine the partial fraction expansion for the given rational function. 
+        \[
+            \frac{4s^{2} - 21s + 16}{s(s - 2)^{2}}
+        \]
+    \end{problem}
+    \textbf{Solution:} \\ \\
+    \textit{We first simplify the given rational function.} \\
+    \begin{align*}
+        &= \frac{4s^{2} - 21s + 16}{s(s - 2)^{2}} = \frac{A}{s} + \frac{B}{s - 2} + \frac{C}{(s - 2)^{2}} \\ \\
+        &= 4s^{2} - 21s + 16 = A(s - 2)^{2} + Bs(s - 2) + Cs \\ \\
+    \end{align*}
+    \textit{Now we find the coefficients.} \\
+    \begin{align*}
+        s = 2: \\
+        4(2)^{2} - 21(2) + 16 &= A(0)^{2} + B(0) + 2C \\
+        16 - 42 + 16 &= 2C \\
+        2C &= -10 \\
+        C &= -5 \\ \\
+        s = 0: \\
+        4(0)^{2} - 21(0) + 16 &= A(2)^{2} \\
+        16 &= A(4) \\
+        A &= 4 \\ \\
+    \end{align*}
+    \textit{Solving by equation coefficients.} \\
+    \begin{align*}
+        &= A(s^{2} - 4s + 4) + B(s^{2} - 2s) + Cs \\
+        &= As^{2} - 4As + 4A + Bs^{2} - 2Bs + Cs \\
+        &= s^{2}(A + B) +  s(-4A - 2B + C) + 4A \\
+    \end{align*}
+    \newpage
+    \textit{Hence:} \\
+    \begin{align*}
+        A + B &= 4 \\
+        -4A - 2B + C &= -21 \\
+        4A &= 16 \\
+    \text{Subsitute $A = 4$ and $C = -5$} \\
+        4 + B &= 4 \\
+        -16 - 2B + (-5) &= -21 \\
+        -2B &= -21 + 16 + 5 \\
+        -2B &= 0\\
+        B &= 0 \\
+    \end{align*} 
+    \textit{Therefore,} \\
+    \begin{align*}
+        \frac{4s^{2} -21s + 16}{s(s - 2)^{2}} &= \frac{4}{s} + \frac{0}{s - 2} + \frac{-5}{(s - 2)^{2}} \\
+        &= \frac{4}{s} - \frac{5}{(s - 2)^{2}}
+    \end{align*}
+
+    \newpage
+% Problem 3
+    \begin{problem}
+        Determine the partial fraction expansion for the given rational function. 
+        \[
+            \frac{3s + 5}{s(s^{2} + s - 6)}
+        \]
+    \end{problem}
+
+    \newpage
+
+    % Problem 4
+    \begin{problem}
+        Determine $\mathcal{L}^{-1}\{F\}$ 
+        \[
+            F(s) = \frac{5s^{2} + 34s + 53}{(s + 3)^{2}(s + 1)}
+        \]
+    \end{problem}
+
+\end{document}
