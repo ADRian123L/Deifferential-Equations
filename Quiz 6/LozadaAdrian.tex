@@ -95,7 +95,36 @@
             \frac{3s + 5}{s(s^{2} + s - 6)}
         \]
     \end{problem}
-
+    \textbf{Solution:} \\ \\
+    \textit{We first simplify the given rational function.} \\
+    \begin{align*}
+     \frac{3s + 5}{s(s^{2} + s - 6)} &= \frac{3s + 5}{s(s + 3)(s - 2)} \\
+    \end{align*}
+    \textit{Now we find the partial fraction expansion.} \\
+    \begin{align*}
+        \frac{3s + 5}{s(s + 3)(s - 2)} &= \frac{A}{s} + \frac{B}{s + 3} + \frac{C}{s - 2} \\
+        &= A(s + 3)(s - 2) + Bs(s - 2) + Cs(s + 3) \\
+    \end{align*}
+    \textit{Solving by equating coefficients.} \\
+    \begin{align*}
+        s = 0: \\
+        3(0) + 5 &= A(3)(-2) + B(0)(0) + C(0)(0) \\
+        5 &= -6A \\
+        A &= -\frac{5}{6} \\ \\
+        s = -3: \\
+        3(-3) + 5 &= A(0) + B(-3)(-3 -2) + C(0) \\
+        -4 &= B(15) \\
+        B &= -\frac{4}{15} \\ \\
+        s = 2: \\
+        3(2) + 5 &= A(0) + B(0) + C(2)(2 + 3) \\
+        11 &= C(10) \\
+        C &= \frac{11}{10} \\ \\
+    \end{align*}
+    \textit{Therefore,} \\
+    \begin{align*}
+        \frac{3s + 5}{s(s^{2} + s - 6)} &= \frac{-\frac{5}{6}}{s} + \frac{-\frac{4}{15}}{s + 3} + \frac{\frac{11}{10}}{s - 2} \\ \\
+        &= -\frac{5}{6s} - \frac{4}{15(s + 3)} + \frac{11}{10(s - 2)}
+     \end{align*} 
     \newpage
 
     % Problem 4
@@ -105,5 +134,41 @@
             F(s) = \frac{5s^{2} + 34s + 53}{(s + 3)^{2}(s + 1)}
         \]
     \end{problem}
-
+    \textbf{Solution:} \\ \\
+    \textit{We first simplify the given rational function.} \\
+    \begin{align*}
+        &= \frac{5s^{2} + 34s + 53}{(s + 3)^{2}(s + 1)} = \frac{A}{s + 3} + \frac{B}{(s + 3)^{2}} + \frac{C}{s + 1} \\ \\
+        &= 5s^{2} + 34s + 53 = A(s + 3)(s + 1) + B(s + 1) + C(s + 3)^{2} \\ \\
+    \end{align*}
+    \textit{Now we find the coefficients.} \\
+    \begin{align*}
+        s = -3: \\
+        5(-3)^{2} + 34(-3) + 53 &= -2B \\
+        -4 &= -2B \\
+        B &= 2 \\ \\ 
+        s = -1: \\
+        5(-1)^{2} + 34(-1) + 53 &=  C(2)^{2} \\
+        24 &= 4C \\
+        C &= 6 \\ \\
+        s = 0: \\
+    \end{align*}
+    \textit{Solving by equating coefficients.} \\
+    \begin{align*}
+        &=A(s + 3)(s + 1) + B(s + 1) + C(s + 3)^{2} \\
+        &= A(s^{2} + 4s + 3) + B(s + 1) + C(s^{2} + 6s + 9) \\
+        &= s^{2}(A + C) + s(4A + 6C + B) + 3A + B + 9C \\ \\
+        s^{2}: \\
+        A + C &= 5 \\
+        A &= 5 - C \\ 
+        A &= 5 - 6 = -1 \\ \\
+    \end{align*} 
+    \textit{Therefore,} \\
+    \begin{align*}
+        \frac{5s^{2} + 34s + 53}{(s + 3)^{2}(s + 1)} &= -\frac{1}{s + 3} + \frac{2}{(s + 3)^{2}} + \frac{6}{(s + 1)} \\ \\
+    \end{align*}
+    \textit{Now we find the inverse Laplace transform.} \\
+    \begin{align*}
+        \mathcal{L}^{-1}\{F\} &= -\mathcal{L}^{-1} \left\{ \frac{1}{s + 3}\right\} + 2\mathcal{L}^{-1} \left\{ \frac{1}{(s + 3)^{2}}\right\} + 6\mathcal{L}^{-1} \left\{ \frac{1}{(s + 1)}\right\} \\ \\
+        &= -e^{-3t} + 2te^{-3t} + 6e^{-t} \\ \\
+    \end{align*}
 \end{document}
