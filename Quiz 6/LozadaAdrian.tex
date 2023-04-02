@@ -18,24 +18,23 @@
     % Problem 1
     \begin{problem}
         Find the inverse Laplace transform of the given function.
-        \[
-            \frac{2s + 16}{s^{2} + 4s + 13}
-        \]
+        \[            \frac{2s + 16}{s^{2} + 4s + 13}        \]
     \end{problem}
     \textbf{Solution:} \\ \\ 
-    \textit{We first simplify the given rational function.} \\
+    \textit{Step 1: Simplify the given rational function.} \\
      \begin{align*}
         \frac{2s + 16}{s^{2} + 4s + 13} &= \frac{2(s + 8)}{(s + 2)^{2} + 9} \\
         &= \frac{2(s + 2 + 6)}{(s + 2)^{2} + (3)^{2}} = \frac{2(s + 2)}{(s + 2)^{2} + (3)^{2}} + \frac{12}{(s + 2)^{2} + (3)^{2}} \\
         &= 2\left( \frac{s + 2}{(s + 2)^{2} + (3)^{2}}\right) + 4\left( \frac{3}{(s + 2)^{2} + (3)^{2}}\right)
      \end{align*}
-    \textit{Now we find the inverse Laplace transform.} \\
+    \textit{Step 2: Find the inverse Laplace transform.} \\
     \begin{align*}
        &= 2\mathcal{L}^{-1} \left\{ \frac{s + 2}{(s + 2)^{2} + (3)^{2}}\right\} + 4\mathcal{L}^{-1} \left\{ \frac{3}{(s + 2)^{2} + (3)^{2}}\right\} \\ \\
        &= 2(e^{-2t}\cos{3t}) + 4(e^{-2t}\sin{3t}) \\ \\
        &= 2e^{-2t}\cos{3t} + 4e^{-2t}\sin{3t}
     \end{align*}
     \newpage
+
 
     % Problem 2
     \begin{problem}
@@ -74,11 +73,8 @@
         A + B &= 4 \\
         -4A - 2B + C &= -21 \\
         4A &= 16 \\
-    \text{Subsitute $A = 4$ and $C = -5$} \\
+    \text{Subsitute $A = 4$} \\
         4 + B &= 4 \\
-        -16 - 2B + (-5) &= -21 \\
-        -2B &= -21 + 16 + 5 \\
-        -2B &= 0\\
         B &= 0 \\
     \end{align*} 
     \textit{Therefore,} \\
