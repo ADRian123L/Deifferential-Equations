@@ -1,0 +1,92 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{theorem}
+\usepackage{enumitem}
+
+\title{Quiz 7}
+\author{Adrian Lozada, U71130053}
+\date{April 7, 2023}
+\theoremheaderfont{\normalfont\bfseries}
+\theorembodyfont{\normalfont}
+\newtheorem{problem}{Problem}
+
+\begin{document}
+    \maketitle
+    \newpage
+
+    \begin{problem}
+        Solve the given initial value problem using the method of Laplace transforms.
+        \[y''(t) - y(t) = t - 2\] where $y(2) = 3$ and $y'(2) = 0$.
+    \end{problem}
+    \textbf{Solution:} \\ \\ 
+    \textit{Step 1: We first move the initial condition to t = 0.} \\
+    $$y''(t + 2) - y(t + 2) = (t + 2) - 2$$
+    $$y''(t + 2) - y(t + 2) = t$$
+     $$w(t) := y(t + 2) \\$$
+     
+     \text{Hence,}
+     \begin{align*}
+        y'(t + 2) = w'(t) \\
+        y''(t + 2) = w''(t) \\
+     \end{align*}
+    \textit{Step 2: We replace t by t + 2.} \\
+    $$w''(t) - w(t) = (t + 2) - 2$$
+    $$w''(t) - w(t) = t$$ \\
+    \textit{Step 3: We apply the Laplace transform.} \\ \\
+    \text{To the RHD,} \\
+    \begin{align*}
+        \mathcal{L}\{t\} &= \frac{1}{s^{2}}, \quad \text{for}  \quad s > 0 \\
+    \end{align*}
+    \text{To the LHD,} \\
+    \begin{align*}
+        \mathcal{L}\{w''(t) - w(t)\} &= (s^{2}Y -s(3) - 0) - Y \\
+        &= s^{2}Y - 3s - Y \\
+        &= Y(s^{2} - 1) - 3s \\
+    \end{align*}
+    \textit{Step 4: We solve for Y(s).} \\
+    \begin{align*}
+        Y(s^{2} - 1) - 3s &= \frac{1}{s^{2}} \\
+        &= \frac{1}{s^{2}} + 3s \\
+        &= \frac{1 + 3s^{3}}{s^{2}}
+    \end{align*}
+    $$Y = \frac{1 + 3s^{2}}{s^{2}(s^{2} - 1)}$$
+\textit{Step 5: We take the partial fraction decomposition.} \\
+\begin{align*}
+    \frac{1 + 3s^{2}}{s^{2}(s^{2} - 1)} &= \frac{1 + 3s^{2}}{s^{2}(s -1)(s + 1)}\\
+    &= \frac{A}{s} + \frac{B}{s^{2}} + \frac{C}{s - 1} + \frac{D}{s + 1} \\
+\end{align*}
+\textit{Step 6: We solve for A, B, C, and D.} \\
+\begin{align*}
+    &= As(s - 1)(s + 1) + B(s - 1)(s + 1) + Cs^{2}(s + 1) + Ds^{2}(s - 1) \\
+\end{align*}
+    $s = 0:$
+    $$-B = 1$$
+    $$B = -1$$
+    $s = 1:$
+    $$2C = 4$$
+    $$C = 2$$
+    $s = -1:$
+    $$-2D = -2$$
+    $$D = 1$$
+    \text{We solve for A by equating the function.} \\
+    $$= As(s^{2} - 1) + B(s^{2} - 1) + Cs^{2}(s + 1) + Ds^{2}(s - 1)$$
+    $$= A(s^{3} - s) + B(s^{2} - 1) + C(s^{3} + s^{2}) + D(s^{3} - s^{2})$$
+    $$= As^{3} - As + Bs^{2} - B + Cs^{3} + Cs^{2} + Ds^{3} - Ds^{2}$$
+    $$s^{3}(A + D) + s^{2}(B + C - D) + s(-A) - B$$
+    $$A + C + D = 3; B + C - D = 0; -A = 0; -B = 1$$
+    $$A = 0;\quad B = -1;\quad C = 2;\quad D = 1$$
+    \text{Hence,}
+    $$\frac{1 + 3s^{2}}{s^{2}(s + 1)(s - 1)} = -\frac{1}{s^{2}} + \frac{2}{s - 1} + \frac{1}{s + 1}$$ \\
+    \textit{Step 7: We take the inverse Laplace transform.} \\
+    $$\mathcal{L}^{-1} \left\{\frac{1 + 3s^{2}}{s^{2}(s + 1)(s - 1)}\right\} = \mathcal{L}^{-1} \left\{-\frac{1}{s^{2}} + \frac{2}{s - 1} + \frac{1}{s + 1}\right\}$$
+    \begin{align*}
+        &= -\mathcal{L}^{-1} \left\{\frac{1}{s^{2}}\right\} + 2\mathcal{L}^{-1} \left\{\frac{1}{s - 1}\right\} + \mathcal{L}^{-1} \left\{\frac{1}{s + 1}\right\} \\ \\
+        &= -t + 2e^{t} + e^{-t}\\
+    \end{align*}
+    \textit{Step 8: We move the initial condition to t = 2.} \\
+    $$=-(t - 2) + 2e^{t + 2} + e^{2 - t}$$ \\
+    $$= 2 -t + 2e^{t + 2} + e^{2 - t}$$
+    \newpage
+
+\end{document}
