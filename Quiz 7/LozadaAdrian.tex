@@ -17,7 +17,7 @@
 
     \begin{problem}
         Solve the given initial value problem using the method of Laplace transforms.
-        \[y''(t) - y(t) = t - 2\] where $y(2) = 3$ and $y'(2) = 0$.
+        \[y''(t) - y(t) = t - 2\] where $y(2) = 3$ and $y'(2) = 0$. \\
     \end{problem}
     \textbf{Solution:} \\ \\ 
     \textit{Step 1: We first move the initial condition to t = 0.} \\
@@ -71,13 +71,7 @@
     $$D = 1$$
     \text{We solve for A by equating the function.} \\
     $$= As(s^{2} - 1) + B(s^{2} - 1) + Cs^{2}(s + 1) + Ds^{2}(s - 1)$$
-    $$= A(s^{3} - s) + B(s^{2} - 1) + C(s^{3} + s^{2}) + D(s^{3} - s^{2})$$
-    $$= As^{3} - As + Bs^{2} - B + Cs^{3} + Cs^{2} + Ds^{3} - Ds^{2}$$
-    $$s^{3}(A + D) + s^{2}(B + C - D) + s(-A) - B$$
-    $$A + C + D = 3; B + C - D = 0; -A = 0; -B = 1$$
-    $$A = 0;\quad B = -1;\quad C = 2;\quad D = 1$$
-    \text{Hence,}
-    $$\frac{1 + 3s^{2}}{s^{2}(s + 1)(s - 1)} = -\frac{1}{s^{2}} + \frac{2}{s - 1} + \frac{1}{s + 1}$$ \\
+    $$= A(s^{3} - s) + B(s^{2} - 1) + C(s^{3} + s^{2}) + D(s^{3} - s^{2})$$ $$= As^{3} - As + Bs^{2} - B + Cs^{3} + Cs^{2} + Ds^{3} - Ds^{2}$$ $$s^{3}(A + D) + s^{2}(B + C - D) + s(-A) - B$$ $$A + C + D = 3; B + C - D = 0; -A = 0; -B = 1$$ $$A = 0;\quad B = -1;\quad C = 2;\quad D = 1$$ \text{Hence,} $$\frac{1 + 3s^{2}}{s^{2}(s + 1)(s - 1)} = -\frac{1}{s^{2}} + \frac{2}{s - 1} + \frac{1}{s + 1}$$ \\
     \textit{Step 7: We take the inverse Laplace transform.} \\
     $$\mathcal{L}^{-1} \left\{\frac{1 + 3s^{2}}{s^{2}(s + 1)(s - 1)}\right\} = \mathcal{L}^{-1} \left\{-\frac{1}{s^{2}} + \frac{2}{s - 1} + \frac{1}{s + 1}\right\}$$
     \begin{align*}
@@ -88,5 +82,59 @@
     $$=-(t - 2) + 2e^{t + 2} + e^{2 - t}$$ \\
     $$= 2 -t + 2e^{t + 2} + e^{2 - t}$$
     \newpage
+
+    % Problem 2
+
+    \begin{problem}
+        Solve
+        \[y'''(t) + 3y''(t) + 3y'(t) + y(t) = 0\] \\
+    \end{problem}
+
+    \textbf{Solution:} \\ \\
+    \textit{Step 1: We first take the LT of the LHS:} 
+    \begin{align*}
+        &= \mathcal{L}\{y''' + 3y''+ 3y' + y\} \\
+        &= \mathcal{L}\{y'''\} + \mathcal{L}\{3y''\} + \mathcal{L} \{3y'\} + \mathcal{L} \{y\} \\
+        &= (s^{3}Y -s^{2}(-4) -s(4) -(-2)) + 3(s^{2}Y -s(-4) - (4)) + 3(sY - (-4)) + Y \\
+        &= Y(s^{3} + 3s^{2} + 3s + 1) + 4s^{2} + 8s + 2
+    \end{align*}
+    \textit{Step 2: We solve for Y(s):} \\
+    \begin{align*}
+        Y(s^{3}  + 3s^{2} + 3s + 1) + 4s^{2} + 8s + 2 &= 0 \\
+        Y(s^{3} + 3s^{2} + 3s + 1) &= -(4s^{2} + 8s + 2) \\
+        Y &= -\frac{4s^{2} + 8s + 2}{s^{3}  + 3s^{2} + 3s + 1}
+    \end{align*}
+    \textit{Step 3: We factor the denominator:}
+    \begin{align*}
+        (s^{3}  + 3s^{2} + 3s + 1) &= (s + 1)(s^{2} + 2s + 1) \\
+        &= (s + 1)(s + 1)(s + 1) \\
+        &= (s + 1)^{3}
+    \end{align*}
+    \textit{Step 4: We break the fraction into partial fractions:}
+    \begin{align*}
+        -\frac{4s^{2} + 8s + 2}{(s + 1)^{3}} &= \frac{A}{(s + 1)} + \frac{B}{(s + 1)^{2}} + \frac{C}{(s + 1)^{3}} \\
+        &= A(s + 1)^{2} + B(s + 1) + C \\
+        &= A(s^{2} + 2s + 1) + Bs + B + C \\
+        &= As^{2} + 2As + A + Bs + B + C \\
+        &= s^{2}(A) + s(2A + B) + A + B + C \\ 
+    \end{align*}
+    \textit{Step 5: We solve for the coefficients:}
+    $$s = -1:$$
+    $$C = -(4 - 8 + 2)$$
+    $$C = 2$$
+    $$A = -4$$
+    $$B = -2(-4) - 8$$
+    $$B = 0$$
+    \text{Hence,} \\
+    $$A = -4$$ 
+    $$B = 0$$ 
+    $$C = 2$$ \\ 
+    $$-\frac{4s^{2} + 8s + 2}{(s + 1)^{3}}= -\frac{4}{(s + 1)} + \frac{2}{(s + 1)^{3}}$$ \\
+    \textit{Step 6: We take the ILT:}
+    \begin{align*}
+        &= -4\mathcal{L}^{-1}\left\{\frac{1}{s + 1}\right\} + 2\mathcal{L}^{-1} \left\{\frac{1}{(s + 1)^{3}}\right\} \\ \\
+        &= -4e^{-t} + \frac{2}{2}t^{2}e^{-t} \\ \\
+        &= -4e^{-t} + t^{2}e^{-t}
+    \end{align*}
 
 \end{document}
